@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+
+            width: 15vw;
+            height: 9vw;
+            border-radius: 66px;
+            background-color:    rgb(180, 69, 108);
+            font-size: 3vw;
+            text-align: center;
+            position: relative;
+            left: 50vw;
+            transform: translateX(-50%);
+            cursor: pointer;
+            min-width: 111px;
+            min-height: 66px;
+        }
+        @media  (max-width: 716px){
+            button{font-size: 21px;}
+        }
+    </style>
+</head>
+<body>
+    <button onclick="redirecionamento()" type="button" class="red" defer>click me</button>
+    <script>
+        var ativar = document.querySelector(".red");
+        var redirecionamento = () =>{
+            var list = prompt("papers please");
+            /*console.log(list);
+            console.log(typeof list); */
+            // () =
+            var ar = list.split(", "); 
+            console.log(ar)
+            var sap = [];
+            ar.forEach((value, index) =>{
+                console.log(`valor antes das verificacoes e ${value}\n`);
+                if (typeof value == String){
+                    console.log(typeof value == String);
+                    if ("https://".indexOf(value) != -1){}
+                    else if ("http://".indexOf(value) != -1){}
+                    else if ("C:/".indexOf(value) != -1){}
+                    else{
+                        value = `https://${value}`;
+                    }
+                }
+                sap.push(`https://${value}`);
+                console.log(`valor depois das verificacoes e ${sap}\n`);
+            });
+            sap.forEach((valor, index) =>{
+                var x = window.open(valor, "_blank");
+            });
+        }
+    </script>
+</body>
+</html>
