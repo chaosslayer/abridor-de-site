@@ -1,0 +1,31 @@
+var abrirVerificado = (listurl) => {
+            var url = listurl.split(', ')
+            var cont
+            url.forEach((value, idex) => {
+                if (value.includes('https://')){
+                    console.log('inclui https')
+                    cont++
+                }
+                if (value.includes('http://')){
+                    console.log('inclui http')
+                    cont++
+                }    
+                if (!((value.includes('http://') || (value.includes('https://'))))){
+                    console.log('nao inclui http nem https')
+                    url[idex] = `https://${value}`
+                    cont++
+                }
+                if (cont == 1){
+                    //ia usar isso para verificar se alguma das verificacoes anteriores passou, mas deixei para la
+                }
+                else{
+                    console.log('algo deu errado :(')
+                }
+            });
+            //adicionei outro foreach pois o value durante um foreach (para o for each) nao se altera, tambem poderia alterar o valor diretamente na variavel url na posicao desejada
+            url.forEach((value)=>{
+                window.open(value, '_blank')
+            });
+            
+
+        }
